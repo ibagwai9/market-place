@@ -10,10 +10,15 @@ import {
   Typography,
 } from "@mui/material";
 import CatchingPokemonIcon from "@mui/icons-material/AccessibilityRounded";
+import { KeyboardArrowDown, KeyboardArrowDownSharp } from "@mui/icons-material";
 
 export default function NavBar() {
   const [anchorEL, setAnchorEL] = useState(null);
   const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+    setAnchorEL(null);
+  };
 
   return (
     <AppBar position="static">
@@ -40,6 +45,7 @@ export default function NavBar() {
             aria-controls={open ? "resources-menu" : null}
             aria-haspopup="true"
             aria-expanded={open ? true : false}
+            endIcon={<KeyboardArrowDown />}
           >
             Resources
           </Button>
@@ -53,9 +59,10 @@ export default function NavBar() {
           MenuListProps={{
             "aria-labelledby": "resources-btn",
           }}
+          onClose={() => handleClose()}
         >
-          <MenuItem>Blog</MenuItem>
-          <MenuItem>Podcast</MenuItem>
+          <MenuItem onClick={() => handleClose()}>Blog</MenuItem>
+          <MenuItem onClick={() => handleClose()}>Podcast</MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>
