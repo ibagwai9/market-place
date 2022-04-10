@@ -73,11 +73,15 @@ function Signup() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div>
-        <Avatar></Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
+      <Box>
+        <div style={{ textAlign: "center" }}>
+          <Avatar />
+
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+        </div>
+
         <form noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -144,7 +148,7 @@ function Signup() {
             </Grid>
           </Grid>
         </form>
-      </div>
+      </Box>
     </Container>
   );
 }
